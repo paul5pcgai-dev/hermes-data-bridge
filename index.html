@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Account Data Bridge is an independent Hermes connector for user-authorized TikTok profile details, account statistics, and public videos.">
+  <title>Account Data Bridge</title>
+  <style>
+    :root { color-scheme: light; --ink:#19231f; --muted:#52645d; --line:#d8e1dc; --paper:#fbfcfa; --panel:#fff; --accent:#176b54; --soft:#edf5f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:17px/1.65 Georgia,"Times New Roman",serif; }
+    .wrap { width:min(920px,calc(100% - 40px)); margin:auto; }
+    header { border-bottom:1px solid var(--line); }
+    .top { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { font:700 15px/1.2 system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+    a { color:var(--accent); text-underline-offset:4px; }
+    nav a { font:600 14px system-ui,sans-serif; }
+    main { padding:68px 0 82px; }
+    .eyebrow { color:var(--accent); font:700 12px/1.4 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
+    h1 { max-width:780px; margin:14px 0 20px; font-size:clamp(40px,7vw,66px); line-height:1.05; letter-spacing:-.035em; font-weight:500; }
+    .lead { max-width:740px; color:var(--muted); font-size:21px; line-height:1.55; }
+    .rule { height:1px; margin:42px 0 32px; background:var(--line); }
+    h2 { margin:0 0 11px; font-size:27px; line-height:1.2; font-weight:500; }
+    p { max-width:780px; margin:0 0 16px; }
+    .scope { margin:18px 0 30px; padding:4px 0; }
+    .scope-row { display:grid; grid-template-columns:190px 1fr; gap:22px; padding:17px 0; border-top:1px solid var(--line); }
+    .scope-row:last-child { border-bottom:1px solid var(--line); }
+    .scope-row h3 { margin:0; font:650 14px/1.5 system-ui,sans-serif; }
+    .scope-row p { margin:0; color:var(--muted); font-size:16px; }
+    .notice { margin:28px 0; padding:17px 19px; background:var(--soft); border-left:3px solid var(--accent); color:#344a41; font-size:15px; }
+    footer { border-top:1px solid var(--line); padding:24px 0 34px; color:var(--muted); font:14px/1.6 system-ui,sans-serif; }
+    footer a { margin-right:18px; }
+    @media (max-width:620px) { .top { align-items:flex-start; flex-direction:column; justify-content:center; padding:18px 0; gap:10px; } main { padding:46px 0 58px; } .scope-row { grid-template-columns:1fr; gap:5px; } }
+  </style>
+</head>
+<body>
+  <header><div class="wrap top"><div class="brand">Account Data Bridge</div><nav aria-label="Main navigation"><a href="privacy.html">Privacy policy</a> · <a href="terms.html">Terms</a></nav></div></header>
+  <main class="wrap">
+    <div class="eyebrow">Independent TikTok API connector for Hermes</div>
+    <h1>Your profile details, account totals, and public videos in Hermes.</h1>
+    <p class="lead">Account Data Bridge is a locally run Model Context Protocol (MCP) connector. Each user authorizes their own TikTok account through TikTok’s official Login Kit and Display API. The connector is read-only and requests only user-approved scopes.</p>
+    <div class="rule"></div>
+    <h2>Information the authorized scopes provide</h2>
+    <p>Subject to TikTok’s app approval and the permissions an account holder grants, the connector can request:</p>
+    <div class="scope">
+      <section class="scope-row"><h3>Basic profile</h3><p>Account identifier, profile image, and display name (<code>user.info.basic</code>).</p></section>
+      <section class="scope-row"><h3>Profile details</h3><p>Username, bio, profile links, and verification status (<code>user.info.profile</code>).</p></section>
+      <section class="scope-row"><h3>Account statistics</h3><p>Follower, following, likes, and public-video counts (<code>user.info.stats</code>). These are totals, not lists of people.</p></section>
+      <section class="scope-row"><h3>Public videos</h3><p>Public videos posted by the authorized account and video metadata TikTok makes available (<code>video.list</code>).</p></section>
+    </div>
+    <h2>Limits</h2>
+    <p>These scopes do not provide private videos, direct messages, or individual follower/following lists. They do not authorize posting or uploading videos. The connector does not request those permissions.</p>
+    <div class="notice">Access depends on TikTok approving the app and scopes, and on each user authorizing them. Available fields are limited to what TikTok returns for the granted scopes.</div>
+    <h2>How information is handled</h2>
+    <p>TikTok API results are returned to the user’s active Hermes conversation. The model provider configured for that Hermes session may process the returned information. The connector runs locally and does not maintain a separate service-side database of TikTok content.</p>
+    <h2>Independent project</h2>
+    <p>Account Data Bridge is not affiliated with, endorsed by, or sponsored by TikTok. TikTok and its marks belong to their respective owner.</p>
+  </main>
+  <footer><div class="wrap"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms</a><span>Read-only TikTok API connector</span></div></footer>
+</body>
+</html>
